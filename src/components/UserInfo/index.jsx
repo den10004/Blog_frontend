@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./UserInfo.module.scss";
-import avatar from "../../img/avatar.PNG";
+import avatar from "../../img/noavatar.png";
 
 export const UserInfo = ({ avatarUrl, fullName, additionalText }) => {
   return (
