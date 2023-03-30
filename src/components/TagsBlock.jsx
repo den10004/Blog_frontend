@@ -14,7 +14,7 @@ export const TagsBlock = ({ items, isLoading = true }) => {
     <SideBlock title="Тэги">
       <List>
         {(isLoading ? [...Array(5)] : items).map((name, i) => (
-          <div style={{ textDecoration: "none", color: "black" }}>
+          <div key={i} style={{ textDecoration: "none", color: "black" }}>
             <ListItem key={i} disablePadding>
               <>
                 <ListItemIcon>

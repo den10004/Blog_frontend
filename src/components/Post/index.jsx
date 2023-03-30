@@ -20,7 +20,6 @@ export const Post = ({
   imageUrl,
   user,
   viewsCount,
-  commentsCount,
   tags,
   children,
   isFullPost,
@@ -31,6 +30,10 @@ export const Post = ({
   if (isLoading) {
     return <PostSkeleton />;
   }
+
+  const createdAtMod = `${new Date(createdAt).getDate()}.${new Date(
+    createdAt
+  ).getMonth()}.${new Date(createdAt).getFullYear()}`;
 
   const onClickRemove = () => {
     if (window.confirm("Вы действительно хотите удалить статью?")) {
@@ -60,7 +63,7 @@ export const Post = ({
         />
       )}
       <div className={styles.wrapper}>
-        <UserInfo {...user} additionalText={createdAt} />
+        <UserInfo {...user} additionalText={createdAtMod} />
         <div className={styles.indention}>
           <h2
             className={clsx(styles.title, { [styles.titleFull]: isFullPost })}
