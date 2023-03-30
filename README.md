@@ -1,4 +1,4 @@
-# Блог. Написан на React.js.
+# Блог. Написан на React.js + Redux
 
 [GitHub](https://github.com/den10004/Blog_frontend.git).
-[Vervel](https://blog-frontend-ten-ashen.vercel.app).
+[Vercel](https://blog-frontend-ten-ashen.vercel.app).
