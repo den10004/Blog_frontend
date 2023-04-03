@@ -24,7 +24,7 @@ export const Header = () => {
       <Container maxWidth="lg">
         <div className={styles.inner}>
           <Link className={styles.logo} to="/">
-            <span>Блог</span>
+            <span>Личный блог</span>
           </Link>
           <>
             {data ? (

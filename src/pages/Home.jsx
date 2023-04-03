@@ -13,6 +13,9 @@ export const Home = () => {
   const { posts, tags } = useSelector((state) => state.posts);
   const userData = useSelector((state) => state.auth.data);
 
+  let postsArr = posts.items;
+  let postReverse = [...postsArr].reverse();
+
   const isPostsLoading = posts.status === "loading";
   const isTagsLoading = tags.status === "loading";
 
@@ -25,7 +28,7 @@ export const Home = () => {
     <>
       <Grid container spacing={4}>
         <Grid xs={8} item>
-          {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) =>
+          {(isPostsLoading ? [...Array(5)] : postReverse).map((obj, index) =>
             isPostsLoading ? (
               <Post key={index} isLoading={true} />
             ) : (
