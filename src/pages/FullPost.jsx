@@ -29,7 +29,7 @@ export const FullPost = () => {
   return (
     <>
       <Post
-        id={data.id}
+        id={data._id}
         title={data.title}
         imageUrl={
           data.imageUrl
