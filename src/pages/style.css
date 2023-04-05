@@ -10,7 +10,7 @@
 }
 
 .homeBlock {
-  width: calc(100% - 150px);
+  width: calc(100% - 170px);
 }
 
 @media screen and (max-width: 767px) {

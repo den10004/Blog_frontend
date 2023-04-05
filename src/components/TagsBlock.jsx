@@ -8,7 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 
 import { SideBlock } from "./SideBlock";
-import "./tagsStyle.css";
+import styles from "./Tags.module.scss";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
   return (

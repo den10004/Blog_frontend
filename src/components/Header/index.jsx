@@ -29,7 +29,7 @@ export const Header = () => {
           <>
             {data ? (
               <span className={styles.inner}>
-                Вы вошли как: {data.fullName}
+                <p> Вы вошли как: {data.fullName}</p>
               </span>
             ) : (
               <></>

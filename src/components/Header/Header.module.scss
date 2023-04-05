@@ -8,25 +8,24 @@
 .inner {
   display: flex;
   justify-content: space-between;
-  & > span {
-    margin-top: 7px;
+  & > p {
+    margin: 7px 0 7px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inner {
+    flex-direction: column;
   }
 }
 
 .logo {
-  background-color: black;
-  color: #fff;
+  color: black;
   font-weight: 700;
   line-height: 35px;
   text-transform: uppercase;
   letter-spacing: 0.15px;
-  border-radius: 5px;
-  padding: 0 10px;
   text-decoration: none;
-
-  &:hover {
-    background-color: #4361ee;
-  }
 }
 
 .buttons {
@@ -36,5 +35,16 @@
 
   a {
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    button {
+      margin-left: 0px;
+      margin-top: 5px;
+    }
   }
 }
