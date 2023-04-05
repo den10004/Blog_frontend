@@ -7,6 +7,7 @@ import { TagsBlock } from "../components/TagsBlock";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchPosts, fetchTags } from "../redux/slices/posts";
+import "./style.css";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -25,37 +26,34 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <Grid container spacing={4}>
-        <Grid xs={8} item>
-          {(isPostsLoading ? [...Array(5)] : postReverse).map((obj, index) =>
-            isPostsLoading ? (
-              <Post key={index} isLoading={true} />
-            ) : (
-              <Post
-                id={obj._id}
-                title={obj.title}
-                key={index}
-                imageUrl={
-                  obj.imageUrl
-                    ? `${process.env.REACT_APP_API_URL}${obj.imageUrl}`
-                    : /*    `http://localhost:4444${obj.imageUrl}`*/
-                      ""
-                }
-                user={obj.user}
-                createdAt={obj.createdAt}
-                viewsCount={obj.viewsCount}
-                commentsCount={3}
-                tags={obj.tags}
-                isEditable={userData?._id === obj.user._id}
-              />
-            )
-          )}
-        </Grid>
-        <Grid xs={4} item>
-          <TagsBlock items={tags.items} isLoading={isTagsLoading} />
-        </Grid>
+    <div className="homeWrapper">
+      <div className="homeBlock">
+        {(isPostsLoading ? [...Array(5)] : postReverse).map((obj, index) =>
+          isPostsLoading ? (
+            <Post key={index} isLoading={true} />
+          ) : (
+            <Post
+              id={obj._id}
+              title={obj.title}
+              key={index}
+              imageUrl={
+                obj.imageUrl
+                  ? /* `${process.env.REACT_APP_API_URL}${obj.imageUrl}`*/ `http://localhost:4444${obj.imageUrl}`
+                  : ""
+              }
+              user={obj.user}
+              createdAt={obj.createdAt}
+              viewsCount={obj.viewsCount}
+              commentsCount={3}
+              tags={obj.tags}
+              isEditable={userData?._id === obj.user._id}
+            />
+          )
+        )}
+      </div>
+      <Grid xs={4} item>
+        <TagsBlock items={tags.items} isLoading={isTagsLoading} />
       </Grid>
-    </>
+    </div>
   );
 };

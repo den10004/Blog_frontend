@@ -1,0 +1,20 @@
+.homeWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .homeWrapper {
+    flex-direction: column-reverse;
+  }
+}
+
+.homeBlock {
+  width: calc(100% - 150px);
+}
+
+@media screen and (max-width: 767px) {
+  .homeBlock {
+    width: 100%;
+  }
+}

@@ -8,28 +8,31 @@ import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 
 import { SideBlock } from "./SideBlock";
+import "./tagsStyle.css";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
   return (
-    <SideBlock title="Тэги">
-      <List>
-        {(isLoading ? [...Array(5)] : items).map((name, i) => (
-          <div key={i} style={{ textDecoration: "none", color: "black" }}>
-            <ListItem key={i} disablePadding>
-              <>
-                <ListItemIcon>
-                  <TagIcon />
-                </ListItemIcon>
-                {isLoading ? (
-                  <Skeleton width={100} />
-                ) : (
-                  <ListItemText primary={name} />
-                )}
-              </>
-            </ListItem>
-          </div>
-        ))}
-      </List>
-    </SideBlock>
+    <div>
+      <SideBlock title="Тэги">
+        <List>
+          {(isLoading ? [...Array(5)] : items).map((name, i) => (
+            <div key={i} style={{ textDecoration: "none", color: "black" }}>
+              <ListItem key={i} disablePadding>
+                <>
+                  <ListItemIcon>
+                    <TagIcon />
+                  </ListItemIcon>
+                  {isLoading ? (
+                    <Skeleton width={100} />
+                  ) : (
+                    <ListItemText primary={name} />
+                  )}
+                </>
+              </ListItem>
+            </div>
+          ))}
+        </List>
+      </SideBlock>
+    </div>
   );
 };
