@@ -11,11 +11,13 @@ import { SideBlock } from "./SideBlock";
 import styles from "./Tags.module.scss";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
+  let uniqueTags = items.filter((item, i, ar) => ar.indexOf(item) === i);
+
   return (
     <div>
       <SideBlock title="Тэги">
         <List>
-          {(isLoading ? [...Array(5)] : items).map((name, i) => (
+          {(isLoading ? [...Array(10)] : uniqueTags).map((name, i) => (
             <div key={i} style={{ textDecoration: "none", color: "black" }}>
               <ListItem key={i} disablePadding>
                 <>
