@@ -17,6 +17,15 @@ export const Home = () => {
   let postsArr = posts.items;
   let postReverse = [...postsArr].reverse();
 
+  const renderTags = postsArr.map((u) => u.tags);
+  let tagsForRender = [];
+  renderTags.forEach((array) => {
+    tagsForRender = tagsForRender.concat(array);
+  });
+  let uniqueTags = tagsForRender.filter(
+    (item, i, ar) => ar.indexOf(item) === i
+  );
+
   const isPostsLoading = posts.status === "loading";
   const isTagsLoading = tags.status === "loading";
 
@@ -52,7 +61,7 @@ export const Home = () => {
         )}
       </div>
       <Grid xs={4} item>
-        <TagsBlock items={tags.items} isLoading={isTagsLoading} />
+        <TagsBlock items={uniqueTags} isLoading={isTagsLoading} />
       </Grid>
     </div>
   );

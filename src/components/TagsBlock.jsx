@@ -8,16 +8,13 @@ import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 
 import { SideBlock } from "./SideBlock";
-import styles from "./Tags.module.scss";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
-  let uniqueTags = items.filter((item, i, ar) => ar.indexOf(item) === i);
-
   return (
     <div>
       <SideBlock title="Тэги">
         <List>
-          {(isLoading ? [...Array(10)] : uniqueTags).map((name, i) => (
+          {(isLoading ? [...Array(10)] : items).map((name, i) => (
             <div key={i} style={{ textDecoration: "none", color: "black" }}>
               <ListItem key={i} disablePadding>
                 <>
