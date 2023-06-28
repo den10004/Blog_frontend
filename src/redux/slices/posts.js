@@ -3,7 +3,7 @@ import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get("/posts");
-  return data;
+  return data.reverse();
 });
 
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
@@ -30,7 +30,12 @@ const initialState = {
 const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducer: {},
+
+  reducers: {
+    reversePosts: (state) => {
+      state.posts.items = state.posts.items.reverse();
+    },
+  },
   extraReducers: {
     [fetchPosts.pending]: (state) => {
       state.posts.items = [];
@@ -67,4 +72,5 @@ const postsSlice = createSlice({
   },
 });
 
+export const { reversePosts } = postsSlice.actions;
 export const postsReducer = postsSlice.reducer;

@@ -6,6 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import TagIcon from "@mui/icons-material/Tag";
 import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
+import "../index.scss";
 
 import { SideBlock } from "./SideBlock";
 
