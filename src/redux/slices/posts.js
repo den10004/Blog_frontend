@@ -35,6 +35,12 @@ const postsSlice = createSlice({
     reversePosts: (state) => {
       state.posts.items = state.posts.items.reverse();
     },
+    popularPosts: (state) => {
+      const key = "viewsCount";
+      state.posts.items = state.posts.items.sort((x, y) =>
+        x[key] < y[key] ? 1 : -1
+      );
+    },
   },
   extraReducers: {
     [fetchPosts.pending]: (state) => {
@@ -72,5 +78,5 @@ const postsSlice = createSlice({
   },
 });
 
-export const { reversePosts } = postsSlice.actions;
+export const { reversePosts, popularPosts } = postsSlice.actions;
 export const postsReducer = postsSlice.reducer;

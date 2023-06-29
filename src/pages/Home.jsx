@@ -5,11 +5,17 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
+import Paper from "@mui/material/Paper";
 import { Post } from "../components/Post";
 import { TagsBlock } from "../components/TagsBlock";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts, fetchTags, reversePosts } from "../redux/slices/posts";
+
+import {
+  fetchPosts,
+  fetchTags,
+  reversePosts,
+  popularPosts,
+} from "../redux/slices/posts";
 import "./style.css";
 
 export const Home = () => {
@@ -42,13 +48,16 @@ export const Home = () => {
     }
     if (event.target.value === 2) {
       dispatch(reversePosts());
+    }
+    if (event.target.value === 3) {
+      dispatch(popularPosts());
     } else return;
   };
+
   return (
     <>
-      <Box sx={{ minWidth: 120, marginBottom: "10px" }}>
+      <Box sx={{ width: 300, marginBottom: "10px" }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label"></InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -56,8 +65,15 @@ export const Home = () => {
             label=""
             onChange={handleSelect}
           >
-            <MenuItem value={1}>Новые статьи</MenuItem>
-            <MenuItem value={2}>Старые статьи</MenuItem>
+            <MenuItem value={1} sx={{ background: "#f5f5f5" }}>
+              Новые статьи
+            </MenuItem>
+            <MenuItem value={2} sx={{ background: "#f5f5f5" }}>
+              Старые статьи
+            </MenuItem>
+            <MenuItem value={3} sx={{ background: "#f5f5f5" }}>
+              По популярности
+            </MenuItem>
           </Select>
         </FormControl>
       </Box>

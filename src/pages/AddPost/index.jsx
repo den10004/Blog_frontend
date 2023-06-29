@@ -102,7 +102,7 @@ export const AddPost = () => {
   }
 
   return (
-    <Paper style={{ padding: 30 }}>
+    <Paper sx={{ padding: 30 }}>
       <Button
         onClick={() => inputRef.current.click()}
         variant="outlined"
