@@ -6,7 +6,21 @@ body {
   background-color: #f5f5f5 !important;
 }
 
-.css-6hp17o-MuiList-root-MuiMenu-list {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.tags__block {
+  display: flex;
+  text-align: center;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapTags {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

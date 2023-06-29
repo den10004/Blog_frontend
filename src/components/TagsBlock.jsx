@@ -1,39 +1,27 @@
 import React from "react";
-
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import TagIcon from "@mui/icons-material/Tag";
-import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 import "../index.scss";
-import "./TagsBlock.scss";
-
-import { SideBlock } from "./SideBlock";
 
 export const TagsBlock = ({ items, isLoading = true }) => {
   return (
     <div>
-      <SideBlock title="Тэги">
-        <List>
-          {(isLoading ? [...Array(10)] : items).map((name, i) => (
-            <div key={i} style={{ textDecoration: "none", color: "black" }}>
-              <ListItem key={i} disablePadding>
-                <>
-                  <ListItemIcon>
-                    <TagIcon />
-                  </ListItemIcon>
-                  {isLoading ? (
-                    <Skeleton width={100} />
-                  ) : (
-                    <ListItemText primary={name} />
-                  )}
-                </>
-              </ListItem>
-            </div>
-          ))}
-        </List>
-      </SideBlock>
+      Теги
+      <div className="wrapTags">
+        {(isLoading ? [...Array(10)] : items).map((name, i) => (
+          <ul key={i}>
+            {isLoading ? (
+              <Skeleton width={100} />
+            ) : (
+              <li>
+                <div className="tags__block">
+                  <TagIcon /> {name}
+                </div>
+              </li>
+            )}
+          </ul>
+        ))}
+      </div>
     </div>
   );
 };
