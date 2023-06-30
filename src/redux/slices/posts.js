@@ -3,12 +3,12 @@ import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get("/posts");
-  return data();
+  return data;
 });
 
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
   const { data } = await axios.get("/tags");
-  return data();
+  return data;
 });
 
 export const fetchRemovePost = createAsyncThunk(
