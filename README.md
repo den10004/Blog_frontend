@@ -1,4 +1,4 @@
-# Блог. Написан на React.js + Redux
+# Блог. Написан на React.js + Redux-Toolkit
 
 ## Реализовано:
 

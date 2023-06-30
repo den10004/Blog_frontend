@@ -3,7 +3,7 @@ import axios from "../../axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const { data } = await axios.get("/posts");
-  return data.reverse();
+  return data();
 });
 
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
@@ -47,7 +47,6 @@ const postsSlice = createSlice({
       state.posts.items = [];
       state.posts.status = "loading";
     },
-
     [fetchPosts.fulfilled]: (state, action) => {
       state.posts.items = action.payload;
       state.posts.status = "loaded";
@@ -60,7 +59,6 @@ const postsSlice = createSlice({
       state.tags.items = [];
       state.tags.status = "loading";
     },
-
     [fetchTags.fulfilled]: (state, action) => {
       state.tags.items = action.payload;
       state.tags.status = "loaded";
@@ -69,7 +67,6 @@ const postsSlice = createSlice({
       state.tags.items = [];
       state.tags.status = "error";
     },
-    //удаление постов
     [fetchRemovePost.pending]: (state, action) => {
       state.posts.items = state.posts.items.filter(
         (obj) => obj._id !== action.meta.arg

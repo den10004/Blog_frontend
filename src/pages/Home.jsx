@@ -66,10 +66,10 @@ export const Home = () => {
             onChange={handleSelect}
           >
             <MenuItem value={1} sx={{ background: "#f5f5f5" }}>
-              Новые статьи
+              Старые статьи
             </MenuItem>
             <MenuItem value={2} sx={{ background: "#f5f5f5" }}>
-              Старые статьи
+              Новые статьи
             </MenuItem>
             <MenuItem value={3} sx={{ background: "#f5f5f5" }}>
               По популярности
