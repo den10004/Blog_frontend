@@ -8,7 +8,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
 
 export const fetchTags = createAsyncThunk("posts/fetchTags", async () => {
   const { data } = await axios.get("/tags");
-  return data;
+  return data();
 });
 
 export const fetchRemovePost = createAsyncThunk(
