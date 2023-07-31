@@ -33,7 +33,7 @@ export const FullPost = () => {
         title={data.title}
         imageUrl={
           data.imageUr
-            ? /* `http://localhost:4444${data.imageUrl}`*/ `${process.env.REACT_APP_API_URL}${data.imageUrl}`
+            ? `http://localhost:4444${data.imageUrl}` /*`${process.env.REACT_APP_API_URL}${data.imageUrl}`*/
             : ""
         }
         user={data.user}

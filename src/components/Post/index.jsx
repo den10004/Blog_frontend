@@ -4,7 +4,6 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Clear";
 import EditIcon from "@mui/icons-material/Edit";
 import EyeIcon from "@mui/icons-material/RemoveRedEyeOutlined";
-import CommentIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { Link } from "react-router-dom";
 
 import styles from "./Post.module.scss";
@@ -12,6 +11,9 @@ import { UserInfo } from "../UserInfo";
 import { PostSkeleton } from "./Skeleton";
 import { useDispatch } from "react-redux";
 import { fetchRemovePost } from "../../redux/slices/posts";
+import { useInView } from "react-intersection-observer";
+import noimage from "../../img/noimage.jpg";
+import "./Post.module.scss";
 
 export const Post = ({
   id,
@@ -26,6 +28,10 @@ export const Post = ({
   isLoading,
   isEditable,
 }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
+
   const dispatch = useDispatch();
   if (isLoading) {
     return <PostSkeleton />;
@@ -55,12 +61,14 @@ export const Post = ({
           </IconButton>
         </div>
       )}
-      {imageUrl && (
+      {imageUrl ? (
         <img
           className={clsx(styles.image, { [styles.imageFull]: isFullPost })}
           src={imageUrl}
           alt={title}
         />
+      ) : (
+        <img style={{ width: "100%" }} src={noimage} alt="нет картинки" />
       )}
       <div className={styles.wrapper}>
         <UserInfo {...user} additionalText={createdAtMod} />

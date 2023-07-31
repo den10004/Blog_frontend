@@ -87,7 +87,7 @@ export const Home = () => {
                 key={index}
                 imageUrl={
                   obj.imageUrl
-                    ? `${process.env.REACT_APP_API_URL}${obj.imageUrl}` /*`http://localhost:4444${obj.imageUrl}`*/
+                    ? /* `${process.env.REACT_APP_API_URL}${obj.imageUrl}` */ `http://localhost:4444${obj.imageUrl}`
                     : ""
                 }
                 user={obj.user}
@@ -103,7 +103,7 @@ export const Home = () => {
         <Grid xs={4} item>
           <TagsBlock items={uniqueTags} isLoading={isTagsLoading} />
         </Grid>
-      </div>{" "}
+      </div>
     </>
   );
 };
