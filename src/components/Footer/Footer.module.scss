@@ -1,0 +1,42 @@
+.root {
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  & > p {
+    margin: 7px 0 7px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inner {
+    flex-direction: column;
+  }
+}
+
+.logo {
+  color: black;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0.15px;
+  text-decoration: none;
+}
+
+.github {
+  color: black;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 0.15px;
+  text-decoration: none;
+}
+
+.githubContent > svg {
+  margin-right: 10px;
+}
