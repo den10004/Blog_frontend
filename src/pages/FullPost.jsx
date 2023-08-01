@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { Post } from "../components/Post";
 import axios from "../axios";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { useSelector } from "react-redux";
 
 export const FullPost = () => {
   const [data, setData] = React.useState();
   const [isLoading, setIsLoading] = React.useState(true);
   const { id } = useParams();
+  const userData = useSelector((state) => state.auth.data);
 
   React.useEffect(() => {
     axios
@@ -20,6 +22,7 @@ export const FullPost = () => {
         console.warn(err);
         alert("Ошибка при получении статьи");
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoading) {
@@ -32,8 +35,8 @@ export const FullPost = () => {
         id={data._id}
         title={data.title}
         imageUrl={
-          data.imageUr
-            ? /*`http://localhost:4444${data.imageUrl}`*/ `${process.env.REACT_APP_API_URL}${data.imageUrl}`
+          data.imageUrl
+            ? `http://localhost:4444${data.imageUrl}` /*`${process.env.REACT_APP_API_URL}${data.imageUrl}`*/
             : ""
         }
         user={data.user}
@@ -41,7 +44,7 @@ export const FullPost = () => {
         viewsCount={data.viewsCount}
         commentsCount={3}
         tags={data.tags}
-        isEditable
+        isEditable={userData}
         isFullPost
       >
         <ReactMarkdown children={data.text} />
