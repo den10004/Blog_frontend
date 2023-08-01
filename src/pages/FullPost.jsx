@@ -22,7 +22,6 @@ export const FullPost = () => {
         console.warn(err);
         alert("Ошибка при получении статьи");
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isLoading) {
@@ -36,7 +35,7 @@ export const FullPost = () => {
         title={data.title}
         imageUrl={
           data.imageUrl
-            ? `http://localhost:4444${data.imageUrl}` /*`${process.env.REACT_APP_API_URL}${data.imageUrl}`*/
+            ? /* `http://localhost:4444${data.imageUrl}` */ `${process.env.REACT_APP_API_URL}${data.imageUrl}`
             : ""
         }
         user={data.user}

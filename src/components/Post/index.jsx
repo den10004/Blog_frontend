@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { fetchRemovePost } from "../../redux/slices/posts";
 //import { useInView } from "react-intersection-observer";
 import noimage from "../../img/noimage.jpg";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import "./Post.module.scss";
 
 export const Post = ({
@@ -61,6 +62,7 @@ export const Post = ({
           </IconButton>
         </div>
       )}
+      <ReactMarkdown />
       {imageUrl ? (
         <img
           className={clsx(styles.image, { [styles.imageFull]: isFullPost })}
